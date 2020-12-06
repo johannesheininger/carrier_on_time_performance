@@ -7,6 +7,9 @@ const fs = require("fs")
 
 const app = express();
 
+var port = process.env.PORT || 8080
+var hostname = '127.0.0.1';
+
 // Use body parser
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -50,10 +53,19 @@ app.post('/check', function (req, res) {
 })
 
 
-app.listen(9000, () => {
-    console.log('Server started on port 9000!');
+//app.listen(9000, () => {
+//    console.log('Server started on port 9000!');
     // console.log(tf.version);
-});
+//});
+
+app.get("/", function(req, res){
+    res.render("index");
+})
+
+
+app.listen(port, function() {
+    console.log(`Server/App running at http://${hostname}:${port}/`);
+})
 
 
 /* Das exportierte Modell wird geladen */
