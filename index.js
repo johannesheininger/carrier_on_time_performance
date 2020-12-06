@@ -7,7 +7,7 @@ const fs = require("fs")
 
 const app = express();
 
-var port = process.env.PORT || 8080
+var port = process.env.PORT || 9000
 var hostname = '127.0.0.1';
 
 // Use body parser
@@ -49,6 +49,7 @@ app.post('/check', function (req, res) {
             "status": prediction.status
         }));
     } else
+        console.log("hmmmm")
         res.end("Modell wurde nicht geladen :-(")
 })
 
@@ -71,8 +72,10 @@ app.listen(port, function() {
 /* Das exportierte Modell wird geladen */
 async function loadModel() {
     //const fileName = ("./_files/" + "test.html");
-    //C:\Users\johannes.heininger\Desktop\Airlines Project\airlines_project\python\index.js
-    model = await tf.loadLayersModel('/model/model.json');
+    //file://C:/Users/johannes.heininger/Desktop/Airlines Project/airlines_project/python/export/model.json
+    //model = await tf.loadLayersModel('/dist/model/model.json');
+    model = await tf.loadLayersModel('https://carrier-on-time-performance.herokuapp.com/model/model.json');
+    //console.log(model)
 }
 
 loadModel().then(() => {
