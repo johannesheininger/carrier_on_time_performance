@@ -7,7 +7,7 @@ function sendJSON() {
     // Creating a XHR object 
     let xhr = new XMLHttpRequest();
 
-    let url = "http://localhost:9000/check";
+    let url = "https://carrier-on-time-performance.herokuapp.com/check";
 
     // open a connection 
     xhr.open("POST", url, true);
