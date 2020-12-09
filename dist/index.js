@@ -22,7 +22,7 @@ function sendJSON() {
             // Print received data from server 
             var jsonObj = JSON.parse(this.responseText)
             result.innerHTML = jsonObj['message'];
-            alert(jsonObj['status'] )
+            // alert(jsonObj['status'] )
             if (jsonObj['status'] == 'In time') {
                 result.style.backgroundColor = "green";
             } else if (jsonObj['status'] == 'Delayed') {
@@ -38,7 +38,7 @@ function sendJSON() {
 
     // Converting JSON data to string 
     // var data = JSON.stringify({ "name": name.value, "email": email.value }); 
-    alert(destination.value + date.value + time.value);
+    // alert(destination.value + date.value + time.value);
     let data = {
         "DEP_HOUR_0.0": 0,
         "DEP_HOUR_1.0": 0,
@@ -176,7 +176,7 @@ function sendJSON() {
         console.log(`${key}: ${value}`);
     }
 
-    alert(JSON.stringify(data));
+    // alert(JSON.stringify(data));
     data = JSON.stringify(data)
     $('#myForm')[0].reset();
     // Sending data with the request 
